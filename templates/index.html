@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Recognition System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎭 Face Recognition System</h1>
+            <p>Real-time face detection and recognition using YOLOv8 & FaceNet</p>
+        </div>
+
+        <div class="main-content">
+            <div class="video-section">
+                <div class="video-container">
+                    <img id="videoFeed" src="{{ url_for('video_feed') }}" 
+                         alt="Video Feed" style="display: none;">
+                    <div id="placeholder" class="video-placeholder">
+                        <p>📷 Camera is off</p>
+                    </div>
+                </div>
+                
+                <div class="controls">
+                    <button id="startBtn" class="btn btn-start">🚀 Start Camera</button>
+                    <button id="stopBtn" class="btn btn-stop" disabled>⏹️ Stop Camera</button>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <div class="detection-log">
+                    <h3>📋 Detection Log</h3>
+                    <div id="detectionList" class="detection-list">
+                        <p class="no-detections">No detections yet</p>
+                    </div>
+                </div>
+
+                <div class="unknown-face-section">
+                    <h3>❓ Unknown Face Detected</h3>
+                    <div id="unknownFaceAlert" class="unknown-alert" style="display: none;">
+                        <p>An unknown face was detected!</p>
+                        <input type="text" id="faceName" placeholder="Enter name for this face">
+                        <button id="saveFaceBtn" class="btn btn-save">💾 Save Face</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
